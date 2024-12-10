@@ -82,8 +82,8 @@ You can `GET` next resources:
  - - - **Response example:**
 ```json
 {
-    "devices":"http://localhost:8000/api/v1/devices/devices/",
-    "device-models":"http://localhost:8000/api/v1/devices/device-models/"
+    "devices": "http://localhost:8000/api/v1/devices/devices/",
+    "device-models": "http://localhost:8000/api/v1/devices/device-models/"
 }
 ```
 
@@ -99,28 +99,28 @@ You can `GET` next resources:
  - - - - **Response example:**
 ```json
 {
-    "meta":{
-        "resultsCount":2,
-        "total":2
+    "meta": {
+        "resultsCount": 2,
+        "total": 2
     },
-    "results":[
+    "results": [
         {
-            "id":2,
-            "address":"198515, г Санкт-Петербург, Красносельский р-н, Санкт-Петербургское шоссе",
-            "name":"Device 2 name",
-            "ipAddress":"2.2.2.2",
-            "comment":"The comment",
-            "model":null,
-            "author":null
+            "id": 2,
+            "address": "198515, г Санкт-Петербург, Красносельский р-н, Санкт-Петербургское шоссе",
+            "name": "Device 2 name",
+            "ipAddress": "2.2.2.2",
+            "comment": "The comment",
+            "model": null,
+            "author": null
         },
         {
-            "id":1,
-            "address":"101000, г Москва",
-            "name":"Device 1 name",
-            "ipAddress":"11.11.11.11",
-            "comment":"",
-            "model":null,
-            "author":1
+            "id": 1,
+            "address": "101000, г Москва",
+            "name": "Device 1 name",
+            "ipAddress": "11.11.11.11",
+            "comment": "",
+            "model": null,
+            "author": 1
         }
     ]
 }
@@ -130,20 +130,20 @@ You can `GET` next resources:
  - - - - **Response example:**
 ```json
 {
-    "meta":{
-        "resultsCount":2,
-        "total":2
+    "meta": {
+        "resultsCount": 2,
+        "total": 2
     },
-    "results":[
+    "results": [
         {
-            "id":1,
-            "name":"device model 1",
-            "description":"description"
+            "id": 1,
+            "name": "device model 1",
+            "description": "description"
         },
         {
-            "id":2,
-            "name":"device model 2",
-            "description":"description"
+            "id": 2,
+            "name": "device model 2",
+            "description": "description"
         }
     ]
 }
