@@ -86,10 +86,8 @@ You can `GET` next resources:
     "device-models": "http://localhost:8000/api/v1/devices/device-models/"
 }
 ```
-
-
  - **`Device`** 
-  - - Supporded **`Query Params`** for all these resources:
+ - - Supporded **`Query Params`** for all these resources:
  - - - `limit` - must be an integer between *0* and *9,223,372,036,854,775,807*, otherwise takes **DEFAULT**
  - - - - **DEFAULT:** *9,223,372,036,854,775,807*
  - - - `offset` - must be a positive integer, otherwise takes **DEFAULT**
