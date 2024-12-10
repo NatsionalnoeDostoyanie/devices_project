@@ -1,0 +1,9 @@
+from settings._from_env import (
+    _DADATA_API_KEY,
+    _DADATA_SECRET_KEY,
+)
+
+
+DADATA_API_KEY = _DADATA_API_KEY
+
+DADATA_SECRET_KEY = _DADATA_SECRET_KEY

@@ -1,0 +1,36 @@
+name: devices-project
+
+services:
+  postgres:
+    image: postgres
+    container_name: ${PG_HOST}
+    ports:
+      - "${PG_PORT}:${PG_PORT}"
+    environment:
+      POSTGRES_DB: ${PG_DATABASE_NAME}
+      POSTGRES_USER: ${PG_USER_NAME}
+      POSTGRES_PASSWORD: ${PG_USER_PASSWORD}
+
+  redis:
+    image: redis
+    container_name: ${REDIS_HOST}
+    ports:
+      - "${REDIS_PORT}:${REDIS_PORT}"
+    command:
+      ["redis-server", "--maxmemory", "4mb", "--maxmemory-policy", "allkeys-lru"]
+
+  django:
+    build:
+      context: .
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/devices_project/src
+      - ./Makefile:/devices_project/Makefile
+      - ./pyproject.toml:/devices_project/pyproject.toml
+      - ./poetry.lock:/devices_project/poetry.lock
+    depends_on:
+      - postgres
+      - redis

@@ -1,0 +1,76 @@
+# Poetry
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]
+
+[tool.poetry]
+authors = ["NatsionalnoeDostoyanie"]
+description = ""
+name = "devices-project"
+readme = "README.md"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+dadata = "^24.10.0"
+django = "^5.1.3"
+django-autocomplete-light = "^3.11.0"
+django-split-settings = "^1.3.2"
+djangorestframework = "^3.15.2"
+djangorestframework-camel-case = "^1.4.2"
+psycopg2 = "^2.9.10"
+python = "^3.12"
+python-dotenv = "^1.0.1"
+redis = "^5.2.1"
+setuptools = "^75.5.0"
+
+[tool.poetry.group.dev.dependencies]
+autoflake = "^2.3.1"
+black = "^24.10.0"
+django-stubs = "^5.1.1"
+djangorestframework-stubs = "^3.15.1"
+isort = "^5.13.2"
+mypy = "^1.13.0"
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# Code formatting
+
+[tool.autoflake]
+exclude = "*/migrations/*"             # Ignore migration files
+ignore_init_module_imports = true      # Ignore unused imports in `__init__.py` files
+in_place = true                        # Modify files directly instead of printing changes to the console
+recursive = true                       # Recursively check directories
+remove_all_unused_imports = true       # Remove all unused imports
+
+[tool.black]
+force-exclude = "migrations/"          # Ignore migration files
+line-length = 120                      # Maximum line length
+
+[tool.isort]
+extend_skip_glob = ["*/migrations/*"]  # Ignore migration files
+force_grid_wrap = 2                    # Disable automatic row wrapping
+include_trailing_comma = true          # Add a comma after the last element in parentheses
+line_length = 120                      # Maximum line length (recommended for black compatibility)
+lines_after_imports = 2                # Number of blank lines to leave after imports
+multi_line_output = 3                  # Use import format with hyphens in parentheses
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
+# Linting
+
+[tool.django-stubs]
+django_settings_module = "core.settings"  # Django settings module
+strict_settings = true                    # Strict mode for Django settings module type checking
+
+[tool.mypy]
+explicit_package_bases = true             # Avoid confusion between local and installed packages
+ignore_missing_imports = true             # Ignore missing type annotations for external libraries
+mypy_path = "src"                         # Path to root directory where mypy will look for modules
+plugins = [                               # Include mypy plugins:
+    "mypy_django_plugin.main",            # for Django type checking
+    "mypy_drf_plugin.main",               # for Django REST Framework type checking
+]
+strict = true                             # Strict mode for type checking
