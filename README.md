@@ -51,7 +51,7 @@ http://127.0.0.1:8000/api/v1/token/
 With the `body`:
 ```json
 {
-    "usermane": "some_superuser_name",
+    "username": "some_superuser_name",
     "password": "some_superuser_password"
 }
 ```
