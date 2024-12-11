@@ -20,7 +20,7 @@ from rest_framework.views import APIView
 _MT = TypeVar("_MT", bound=Model)
 
 
-class CustomLimitOffsetPagination(LimitOffsetPagination):
+class LimitOffsetOnlyPagination(LimitOffsetPagination):
     # TODO: Consider removing `cast()` since `settings.DB_MAX_INT` is guaranteed to exist and is `int`
     # (used for type checking)
     default_limit = cast(int, settings.DB_MAX_INT)  # type: ignore[misc]
@@ -49,3 +49,18 @@ class CustomLimitOffsetPagination(LimitOffsetPagination):
                 "results": data,
             }
         )
+
+    def get_paginated_response_schema(self, *args: Any, **kwargs: Any) -> dict[str, Any]:
+        return_schema = super().get_paginated_response_schema(*args, **kwargs)
+        del (
+            return_schema["properties"]["count"],
+            return_schema["properties"]["next"],
+            return_schema["properties"]["previous"],
+        )
+        return_schema["required"] = ("results", "meta")
+        return_schema["properties"]["meta"] = {
+            "type": "object",
+            "required": ("results_count", "total"),
+            "properties": {"results_count": {"type": "integer"}, "total": {"type": "integer"}},
+        }
+        return return_schema
