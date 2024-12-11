@@ -3,7 +3,6 @@ from typing import Any
 
 class BaseSingletonMixin:
     __instances: dict[Any, "BaseSingletonMixin"] = {}
-    _initialized = False
 
     @classmethod
     def __new__(cls, *args: Any, **kwargs: Any) -> "BaseSingletonMixin":
@@ -18,11 +17,6 @@ class BaseSingletonMixin:
         if key not in cls.__instances:
             cls.__instances[key] = super().__new__(cls)
         return cls.__instances[key]
-
-    def __init__(self, *args: Any, **kwargs: Any) -> None:
-        if not self._initialized:
-            super().__init__(*args, **kwargs)
-            self._initialized = True
 
 
 # Test BaseSingletonMixin:
