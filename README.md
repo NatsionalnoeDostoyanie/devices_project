@@ -59,7 +59,7 @@ With the `body`:
 You will get:
 ```json
 {
-    "token": "<Token you have get>"
+    "token": "<Token you have got>"
 }
 ```
 
@@ -70,7 +70,7 @@ Host: 127.0.0.1:8000
 ...
 ...
 ...
-Authorization: Token <Token you have get>
+Authorization: Token <Token you have got>
 ```
 
 ## URLs
@@ -93,7 +93,7 @@ You can `GET` next resources:
  - - - `offset` - must be a positive integer, otherwise takes **DEFAULT**
  - - - - **DEFAULT:** *0*
  - - **`All the device instances`**
- - - - http://127.0.0.1:8000/api/v1/devices/devices /
+ - - - http://127.0.0.1:8000/api/v1/devices/devices/
  - - - - **Response example:**
 ```json
 {
