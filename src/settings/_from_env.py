@@ -18,7 +18,7 @@ _DADATA_SECRET_KEY = os.getenv("DADATA_SECRET_KEY")
 
 # Django
 
-_DEBUG = strtobool(os.getenv("DEBUG"))
+_DEBUG = os.getenv("DEBUG")
 
 _SECRET_KEY = os.getenv("SECRET_KEY")
 

@@ -4,15 +4,10 @@ from settings._from_env import (
 )
 
 
+REDIS_DEFAULT_KEY_PREFIX = "devices_project:"
+
+REDIS_DEFAULT_TIMEOUT = 1_209_600  # 2 weeks
+
 REDIS_HOST = _REDIS_HOST
 
-REDIS_PORT = _REDIS_PORT
-
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": f"redis://{REDIS_HOST}:{REDIS_PORT}",
-        "TIMEOUT": 1_209_600,  # 2 weeks
-        "KEY_PREFIX": "devices_project",
-    }
-}
+REDIS_PORT = int(_REDIS_PORT)  # type: ignore[arg-type]

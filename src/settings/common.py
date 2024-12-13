@@ -1,4 +1,5 @@
 import os
+from distutils.util import strtobool
 
 from settings._from_env import (
     _DEBUG,
@@ -10,7 +11,7 @@ ALLOWED_HOSTS: list[str] = []
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DEBUG = _DEBUG
+DEBUG = strtobool(_DEBUG)
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

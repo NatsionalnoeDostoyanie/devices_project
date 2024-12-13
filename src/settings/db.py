@@ -13,7 +13,7 @@ PG_DATABASE_NAME = _PG_DATABASE_NAME
 
 PG_HOST = _PG_HOST
 
-PG_PORT = _PG_PORT
+PG_PORT = int(_PG_PORT)  # type: ignore[arg-type]
 
 PG_USER_NAME = _PG_USER_NAME
 
@@ -29,15 +29,3 @@ DATABASES = {
         "USER": PG_USER_NAME,
     }
 }
-
-
-# import os
-
-# from settings.common import BASE_DIR
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-#     }
-# }
